@@ -5,7 +5,7 @@ const Sequelize = require('sequelize');
 module.exports = function (app) {
   const sequelizeClient = app.get('sequelizeClient');
   const posts = sequelizeClient.define('posts', {
-    text: {
+    title: {
       type: Sequelize.STRING,
       allowNull: false
     }

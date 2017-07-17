@@ -5,7 +5,7 @@ const Sequelize = require('sequelize');
 module.exports = function (app) {
   const sequelizeClient = app.get('sequelizeClient');
   const tags = sequelizeClient.define('tags', {
-    text: {
+    name: {
       type: Sequelize.STRING,
       allowNull: false
     }
