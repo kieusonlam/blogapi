@@ -1,8 +1,17 @@
-
+function includeRelation() {
+    return function (hook) {
+        const tags = hook.app.services.tags.Model;
+        hook.params.sequelize = {
+            raw: false,
+            include: [{ model: tags }]
+        };
+        return Promise.resolve(hook);
+    };
+}
 
 module.exports = {
   before: {
-    all: [],
+    all: [includeRelation()],
     find: [],
     get: [],
     create: [],
