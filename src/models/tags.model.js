@@ -7,7 +7,11 @@ module.exports = function (app) {
   const tags = sequelizeClient.define('tags', {
     name: {
       type: Sequelize.STRING,
-      allowNull: false
+      required: true
+    },
+    description: {
+      type: Sequelize.TEXT,
+      required: true
     }
   }, {
     hooks: {
@@ -21,7 +25,7 @@ module.exports = function (app) {
     // Define associations here
     // See http://docs.sequelizejs.com/en/latest/docs/associations/
     tags.belongsToMany(models.posts, {
-      through: 'post_tag',
+      through: 'postTag',
       foreignKey: 'tagsId'
     })
   };
