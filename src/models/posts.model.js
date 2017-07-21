@@ -25,7 +25,7 @@ module.exports = function (app) {
     // Define associations here
     // See http://docs.sequelizejs.com/en/latest/docs/associations/
     posts.belongsToMany(models.tags, {
-      through: 'postTag',
+      through: 'posts_tags',
       foreignKey: 'postsId'
     })
   };
